@@ -1,0 +1,15 @@
+What will be the output of following code?
+li = [ele**2 for ele in range(5)]
+print(li)
+Output:
+[0,1,4,9,16]
+What will be the output of following code?
+li = [ele**2 for ele in range(10) if ele%3 ==0]
+print(li)
+Output:
+[0,9,36,81]
+What will be the output of following code?
+li = [[ i*j for j in range(4)] for i in range(3)]
+print(li)
+Output:
+[[0, 0, 0, 0], [0, 1, 2, 3], [0, 2, 4, 6]]
