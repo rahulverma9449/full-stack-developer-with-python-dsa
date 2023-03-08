@@ -32,3 +32,21 @@ n=int(input())
 arr=list(int(i) for i in input().strip().split(' '))
 x=int(input())
 print(firstIndex(arr, x))
+
+***************************
+def lastIndex(arr, x):
+    if len(arr) == 0:
+        return -1
+    smallListOutput = lastIndex(arr[1:],x)
+    if smallListOutput == -1:
+        if arr[0] == x:
+            return 0
+        else:
+            return -1
+    else:
+        return smallListOutput + 1
+    
+n = int(input())
+arr = list(map(int, input().split()))
+x = int(input())
+print(lastIndex(arr,x))
