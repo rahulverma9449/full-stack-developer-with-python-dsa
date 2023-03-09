@@ -9,3 +9,4 @@ def replacePi(s):
         return s[0]+smallOutput
 
 replacePi("pippi")
+https://www.whonix.org/wiki/Comparison_with_Others
