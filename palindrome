@@ -1,0 +1,32 @@
+Check Palindrome (recursive)
+Send Feedback
+Check whether a given String S is a palindrome using recursion. Return true or false.
+Input Format :
+String S
+Output Format :
+'true' or 'false'
+Constraints :
+0 <= |S| <= 1000
+where |S| represents length of string S.
+Sample Input 1 :
+racecar
+Sample Output 1:
+true
+Sample Input 2 :
+ninja
+Sample Output 2:
+false
+***********************************************
+def isPalindrome(s, i):
+    if(i > len(s)/2):
+        return True
+    ans = False
+    if((s[i] is s[len(s) - i - 1]) and isPalindrome(s, i + 1)):
+        ans = True
+    return ans
+ 
+str = input()
+if (isPalindrome(str, 0)):
+    print("true")
+else:
+    print("false")
