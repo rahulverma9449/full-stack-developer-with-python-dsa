@@ -1,0 +1,60 @@
+class ExpenseTracker:
+    """this is a class to do expense tracking"""
+    def __init__(self):
+        pass
+obj1=ExpenseTracker()
+class ExpenseTracker:
+    """this is a class to do expense tracking"""
+    def __init__(self,date,description,transaction_type,amount):
+        self.date=date
+        self.description=description
+        self.transaction_type=transaction_type
+        self.amount=amount
+obj2=ExpenseTracker("12Jan","Dinner with Friends","Debit","500")
+obj3=ExpenseTracker("1Jan","Salary Credited","Credit","30000")
+obj2.date
+obj2.amount
+obj3.date
+obj3.amount
+*********************************************************
+class ExpenseTracker:
+    #class attribute
+    expense_tracker_version=0.1
+    
+    def __init__(self,tracker_category,opening_balance,budget):
+        self.tracker_category=tracker_category
+        self.opening_balance=opening_balance
+        self.budget=budget
+home_tracker=ExpenseTracker("home",3000,10000)
+home_tracker.tracker_category
+shopping_tracker=ExpenseTracker("shopping",1000,5000)
+shopping_tracker.tracker_category
+home_tracker.__dict__
+shopping_tracker.__dict__
+getattr(home_tracker,'opening_balance')
+getattr(shopping_tracker,'opening_balance')
+hasattr(shopping_tracker,'opening')
+hasattr(shopping_tracker,'opening_balance')
+home_tracker.__dict__
+delattr(home_tracker,'opening_balance')
+home_tracker.__dict__
+****************************************************************
+class ExpenseTracker:
+    #class attribute
+    expense_version_tracker=0.1
+    def __init__(self,tracker_category,opening_balance,budget):
+        #instance/object Attributes
+        self.tracker_category=tracker_category
+        self.opening_balance=opening_balance
+        self.budget=budget
+home_tracker=ExpenseTracker("home",0,10000)
+shopping_tracker=ExpenseTracker("shopping",1000,5000)
+home_tracker.tracker_category
+getattr(home_tracker,'tracker_category')
+home_tracker.__dict__
+home_tracker.expense_version_tracker
+shopping_tracker.tracker_category
+shopping_tracker.expense_version_tracker
+home_tracker.expense_version_tracker=0.2
+home_tracker.expense_version_tracker
+shopping_tracker.expense_version_tracker
