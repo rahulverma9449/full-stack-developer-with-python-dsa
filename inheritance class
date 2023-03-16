@@ -52,3 +52,41 @@ myobj.model
 myobj.__model
 myobj.__private_method_parent()
 myobj.show_privatemethod_ofparent()
+
+*********************************************
+1+2
+"a"+"b"
+len([1,2,3,4])
+len("my name is lavi")
+# Parent Class
+class Vehicle():
+    current_year=2021
+    base_price=1000
+    
+    def __init__(self,make,model,fuel):
+        self.make=make
+        self.__model=model
+        self.__fuel=fuel
+    def __private_method_parent(self):
+        print("This is private")
+    def get_value(self):
+        age=Vehicle.current_year-self.__model
+        return Vehicle.base_price*(1/age)
+# Child Class
+class Car(Vehicle):
+    def __init__(self,make,model,fuel,air_conditioning,sunroof):
+        super(Car,self).__init__(make,model,fuel)
+        self.air_conditioning=air_conditioning
+        self.sunroof=sunroof
+    def get_value(self):
+        Vehicle.base_price=5000
+        age=Vehicle.current_year-self._Vehicle__model
+        print("This is child override method")
+        return Vehicle.base_price*(1/age)
+    
+myobj=Car("Tesla",2019,"Electric",True,True)
+myobj.__dict__
+myobj.get_value()
+myobj._Vehicle__private_method_parent()
+myparentobj=Vehicle("Ford",2018,"petrol")
+myparentobj.get_value()
