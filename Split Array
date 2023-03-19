@@ -28,3 +28,16 @@ true
 
 Solution***************************
 
+def split(arr,i,sum):
+    #Implement Your Function here
+    if i == len(arr):
+        return abs(sum)   
+    return min(split(arr, i+1, sum+arr[i]), split(arr, i+1, sum-arr[i])) 
+    
+n = input()
+arr = [int(ele) for ele in input().split()]
+ans = split(arr,0,0)
+if ans is True:
+    print('true')
+else:
+    print('false')
