@@ -54,22 +54,8 @@ def midPoint(head) :
         fast = fast.next.next
     return slow
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
 
 
 def takeInput() :
