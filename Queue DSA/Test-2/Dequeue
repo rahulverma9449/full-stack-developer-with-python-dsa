@@ -1,0 +1,119 @@
+Dequeue
+Send Feedback
+You need to implement a class for Dequeue i.e. for double ended queue. In this queue, elements can be inserted and deleted from both the ends.
+You don't need to double the capacity.
+You need to implement the following functions -
+1. constructor
+You need to create the appropriate constructor. Size for the queue passed is 10.
+2. insertFront -
+This function takes an element as input and insert the element at the front of queue. Insert the element only if queue is not full. And if queue is full, print -1 and return.
+3. insertRear -
+This function takes an element as input and insert the element at the end of queue. Insert the element only if queue is not full. And if queue is full, print -1 and return.
+4. deleteFront -
+This function removes an element from the front of queue. Print -1 if queue is empty.
+5. deleteRear -
+This function removes an element from the end of queue. Print -1 if queue is empty.
+6. getFront -
+Returns the element which is at front of the queue. Return -1 if queue is empty.
+7. getRear -
+Returns the element which is at end of the queue. Return -1 if queue is empty.
+Input Format:
+For C++ and Java, input is already managed for you. You just have to implement given functions.
+
+For Python:
+The choice codes and corresponding input for each choice are given in a new line. The input is terminated by integer -1. The following table elaborately describes the function, their choice codes and their corresponding input - 
+Alt Text
+
+Output Format:
+For C++ and Java, output is already managed for you. You just have to implement given functions.
+
+For Python: 
+The output format for each function has been mentioned in the problem description itself. 
+Sample Input 1:
+5 1 49 1 64 2 99 5 6 -1
+Sample Output 1:
+-1
+64
+99
+Explanation:
+The first choice code corresponds to getFront. Since the queue is empty, hence the output is -1. 
+The following input adds 49 at the top and the resultant queue becomes: 49.
+The following input adds 64 at the top and the resultant queue becomes: 64 -> 49
+The following input add 99 at the end and the resultant queue becomes: 64 -> 49 -> 99
+The following input corresponds to getFront. Hence the output is 64.
+The following input corresponds to getRear. Hence the output is 99.
+
+*********************************************
+
+
+import collections
+
+class Queue:
+    def __init__(self):
+        self.queue = collections.deque()
+        self.size = 0
+
+    def insert_front(self, num):
+        if self.size < 10:
+            self.queue.appendleft(num)
+            self.size += 1
+        else:
+            print(-1)
+
+    def insert_rear(self, num):
+        if self.size < 10:
+            self.queue.append(num)
+            self.size += 1
+        else:
+            print(-1)
+
+    def delete_front(self):
+        if self.size >= 1:
+            self.queue.popleft()
+            self.size -= 1
+        else:
+            print(-1)
+
+    def delete_rear(self):
+        if self.size >= 1:
+            self.queue.pop()
+            self.size -= 1
+        else:
+            print(-1)
+
+    def get_first(self):
+        if self.size >= 1:
+            element = self.queue.popleft()
+            print(element)
+            self.queue.appendleft(element)
+        else:
+            print(-1)
+
+    def get_last(self):
+        if self.size >= 1:
+            element = self.queue.pop()
+            print(element)
+            self.queue.append(element)
+        else:
+            print(-1)
+
+inp_ls = list(map(int, input().split()))
+itr = 0
+queue = Queue()
+while inp_ls[itr] != -1:
+    choice = inp_ls[itr]
+    if choice == 1:
+        itr += 1
+        queue.insert_front(inp_ls[itr])
+    elif choice == 2:
+        itr += 1
+        queue.insert_rear(inp_ls[itr])
+    elif choice == 3:
+        queue.delete_front()
+    elif choice == 4:
+        queue.delete_rear()
+    elif choice == 5:
+        queue.get_first()
+    elif choice == 6:
+        queue.get_last()
+    itr += 1
