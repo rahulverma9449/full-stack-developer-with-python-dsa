@@ -1,0 +1,61 @@
+Print Keypad
+Send Feedback
+Given an integer n, using phone keypad find out and print all the possible strings that can be made using digits of input n.
+Note : The order of strings are not important. Just print different strings in new lines.
+Input Format :
+Integer n
+Output Format :
+All possible strings in different lines
+Constraints :
+1 <= n <= 10^6
+Sample Input:
+23
+Sample Output:
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf
+***********************************************
+from math import *
+from collections import *
+from sys import *
+from os import *
+
+
+
+def get_keypad_combinations(number):
+    keypad = {
+        '2': 'abc',
+        '3': 'def',
+        '4': 'ghi',
+        '5': 'jkl',
+        '6': 'mno',
+        '7': 'pqrs',
+        '8': 'tuv',
+        '9': 'wxyz'
+    }
+
+    def generate_combinations(number, current_combination, index):
+        if index == len(number):
+            print(current_combination)
+            return
+
+        digit = number[index]
+        characters = keypad[digit]
+
+        for char in characters:
+            generate_combinations(number, current_combination + char, index + 1)
+
+    generate_combinations(number, "", 0)
+
+# Main function
+if __name__ == "__main__":
+    input_number = input().strip()
+    get_keypad_combinations(input_number)
+## Read input as specified in the question.
+## Print output as specified in the question.
