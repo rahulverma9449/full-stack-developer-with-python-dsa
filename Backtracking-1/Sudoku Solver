@@ -1,0 +1,74 @@
+Sudoku Solver
+Send Feedback
+Given a 9*9 sudoku board, in which some entries are filled and others are 0 (0 indicates that the cell is empty), you need to find out whether the Sudoku puzzle can be solved or not i.e. return true or false.
+Input Format :
+9 Lines where ith line contains ith row elements separated by space
+Output Format :
+ true or false
+Sample Input :
+9 0 0 0 2 0 7 5 0 
+6 0 0 0 5 0 0 4 0 
+0 2 0 4 0 0 0 1 0 
+2 0 8 0 0 0 0 0 0 
+0 7 0 5 0 9 0 6 0 
+0 0 0 0 0 0 4 0 1 
+0 1 0 0 0 5 0 8 0 
+0 9 0 0 7 0 0 0 4 
+0 8 2 0 4 0 0 0 6
+Sample Output :
+true
+************************
+
+def solveSudoku(board):
+    # Find the next empty cell
+    def findEmptyCell(board):
+        for row in range(9):
+            for col in range(9):
+                if board[row][col] == 0:
+                    return row, col
+        return None
+
+    # Check if a number is valid in the given position
+    def isValid(board, num, row, col):
+        # Check row
+        for i in range(9):
+            if board[row][i] == num:
+                return False
+        # Check column
+        for i in range(9):
+            if board[i][col] == num:
+                return False
+        # Check 3x3 grid
+        start_row = (row // 3) * 3
+        start_col = (col // 3) * 3
+        for i in range(3):
+            for j in range(3):
+                if board[start_row + i][start_col + j] == num:
+                    return False
+        return True
+
+    # Solve the Sudoku puzzle using backtracking
+    def solve(board):
+        # Find the next empty cell
+        cell = findEmptyCell(board)
+        if cell is None:
+            return True  # Sudoku solved
+        row, col = cell
+
+        # Try numbers from 1 to 9
+        for num in range(1, 10):
+            if isValid(board, num, row, col):
+                board[row][col] = num
+                if solve(board):
+                    return True
+                board[row][col] = 0  # Reset the cell if solution not found
+        return False
+
+    return solve(board)
+
+board = [[ int(ele) for ele in input().split() ]for i in range(9)]
+ans = solveSudoku(board)
+if ans is True:
+    print('true')
+else:
+    print('false')
