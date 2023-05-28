@@ -1,0 +1,64 @@
+Dijkstra's Algorithm
+Send Feedback
+Given an undirected, connected and weighted graph G(V, E) with V number of vertices (which are numbered from 0 to V-1) and E number of edges.
+Find and print the shortest distance from the source vertex (i.e. Vertex 0) to all other vertices (including source vertex also) using Dijkstra's Algorithm.
+Input Format :
+Line 1: Two Integers V and E (separated by space)
+Next E lines : Three integers ei, ej and wi, denoting that there exists an edge between vertex ei and vertex ej with weight wi (separated by space)
+Output Format :
+For each vertex, print its vertex number and its distance from source, in a separate line. The vertex number and its distance needs to be separated by a single space.
+Note : Order of vertices in output doesn't matter.
+Constraints :
+2 <= V, E <= 10^5
+Time Limit: 1 sec
+Sample Input 1 :
+4 4
+0 1 3
+0 3 5
+1 2 1
+2 3 8
+Sample Output 1 :
+0 0
+1 3
+2 4
+3 5
+*******************************
+import sys
+
+def find_min_vertex(distances, visited):
+    min_vertex = -1
+    for i in range(len(distances)):
+        if not visited[i] and (min_vertex == -1 or distances[i] < distances[min_vertex]):
+            min_vertex = i
+    return min_vertex
+
+def dijkstra(graph, V):
+    visited = [False] * V
+    distances = [sys.maxsize] * V
+    distances[0] = 0
+
+    for _ in range(V):
+        min_vertex = find_min_vertex(distances, visited)
+        visited[min_vertex] = True
+        for j in range(V):
+            if graph[min_vertex][j] > 0 and not visited[j]:
+                new_distance = distances[min_vertex] + graph[min_vertex][j]
+                if new_distance < distances[j]:
+                    distances[j] = new_distance
+
+    for i in range(V):
+        print(i, distances[i])
+
+
+# Read input
+V, E = map(int, input().split())
+graph = [[0] * V for _ in range(V)]
+
+# Build graph
+for _ in range(E):
+    ei, ej, wi = map(int, input().split())
+    graph[ei][ej] = wi
+    graph[ej][ei] = wi
+
+# Run Dijkstra's algorithm
+dijkstra(graph, V)
