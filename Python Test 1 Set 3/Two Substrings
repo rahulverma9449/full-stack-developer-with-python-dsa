@@ -1,0 +1,49 @@
+Two Substrings
+You are given a string S. Your task is to determine if the given string S contains two non-overlapping substrings "AB" and "BA" (the substrings can go in any order). Print "YES" or "NO".
+The string S contains uppercase Latin letters only.
+Input format :
+Line 1: String S
+Output format :
+YES or NO
+Constraints :
+1 <= n (Length of String s) <= 10^5
+Sample Input 1 :
+ABA
+Sample Output 1 :
+NO
+Sample Input 2 :
+BACFAB
+Sample Output 2 :
+YES
+Sample Input 3 :
+AXBYBXA
+Sample Output 3 :
+NO
+**************
+def check_two_substrings(string):
+    # Check if "AB" is present in the string
+    if "AB" in string:
+        # Find the index of "AB"
+        ab_index = string.index("AB")
+        
+        # Check if "BA" is present after "AB"
+        if "BA" in string[ab_index + 2:]:
+            return "YES"
+    
+    # Check if "BA" is present in the string
+    if "BA" in string:
+        # Find the index of "BA"
+        ba_index = string.index("BA")
+        
+        # Check if "AB" is present after "BA"
+        if "AB" in string[ba_index + 2:]:
+            return "YES"
+    
+    return "NO"
+
+# Read the input string
+s = input()
+
+# Check if the string contains two non-overlapping substrings "AB" and "BA"
+result = check_two_substrings(s)
+print(result)
