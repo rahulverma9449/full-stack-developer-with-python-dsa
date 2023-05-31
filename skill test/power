@@ -1,0 +1,64 @@
+Power
+Ninja is given an easy task. He has to implement a function which calculates a^b. But there is a small difference, b is an extremely large positive number given in the form of an array.
+Note: Since answers can be huge, print answer mod 1337.
+It is given that b will not contain leading zeros.
+Input Format:
+ First line of input contains an integer a
+ Second line of input contains an integer n, representing the size of the array.
+ Third line of input contains an array (space separated).
+Constraints:
+1 <= a <= 2^31 - 1
+1 <= b.length <= 3 * 10^6
+0 <= b[i] <= 9
+Time Limit: 1 second
+Output Format:
+Single line of output printing a^b
+Sample Input 1:
+5
+2
+1 5
+Sample Output:
+944
+Explanation:
+5 to the power 15 is 30517578125. Its mod with 1337 is 944.
+
+Python (3.5)
+1234567891011121314151617181920
+# Write your code here
+a = int(input())
+n = int(input())
+b = list(map(int, input().split()))
+
+exp=sum([b[i] * 10**(n-i-1) for i in range(n)]) %1140
+if exp==0:
+        exp=1140
+
+def mod(base, exp, mod):
+
+
+CUSTOM INPUT
+
+
+SUBMIT SOLUTION
+
+*****************
+# Write your code here
+a = int(input())
+n = int(input())
+b = list(map(int, input().split()))
+
+exp=sum([b[i] * 10**(n-i-1) for i in range(n)]) %1140
+if exp==0:
+        exp=1140
+
+def mod(base, exp, mod):
+        res = 1
+        base %= mod
+        while exp >0:
+                if exp & 1 ==1:
+                        res = (res * base)%mod
+                base = (base*base)%mod
+                exp >>=1
+        return res
+result = mod(a, exp, 1337)
+print(result)
