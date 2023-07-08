@@ -1,0 +1,61 @@
+#div1 {
+  height: 40px;
+  width: 250px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  font-size: 30px;
+  border: solid red;
+  border-width: 3px 0px 3px 0px;
+  text-align: center;
+  padding: 5px;
+  animation-name: changeShape, rotate, reduceSize;
+  animation-duration: 0.8s, 0.8s, 0.8s;
+  animation-direction: alternate, alternate, alternate;
+  animation-iteration-count: infinite,infinite, infinite;
+}
+
+
+#div1{ animation: fadeIn 15s; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+
+
+@keyframes changeShape{
+  0% {
+       border-radius: 0%;
+    }
+    25% {
+       border-radius: 12.5%;
+    }
+    50% {
+         border-radius: 25%;
+      }
+    100% {
+         border-radius:  50%;
+      }
+
+}
+
+@keyframes rotate{
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
+@keyframes reduceSize{
+  from{
+       height: 200px;
+       width: 200px;
+
+  }
+  to{
+      height: 200px;
+      width: 200px;
+
+  }
+}
