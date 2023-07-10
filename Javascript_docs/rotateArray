@@ -1,0 +1,16 @@
+//Write your function here
+
+
+function rotateLeft(arr) {
+
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const rotateArray = arr.slice(1).concat(arr[0]);
+…  }
+
+  const ans = rotateLeft(nums).join(' ')
+  process.stdout.write(ans)
+  process.exit();
+});
