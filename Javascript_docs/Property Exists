@@ -1,0 +1,39 @@
+Property Exists
+Send Feedback
+Implement a function propertyExists(obj, path) that takes two arguments - an object and a path (string). It returns ‘False’ if the property is null or it doesn’t exist for that object, otherwise it will return the value of the property for that object.
+Note: Properties can have single character only. So, path can be a string with concatenation of many properties.
+Sample Input :
+1  {"a":{"b":"dadsa"}} ac
+Expected Output :
+false
+Sample Input :
+2
+{"a":{"b":"dadsa"}} ac
+{"a":{"b":"dadsa"}} ab
+Expected Output :
+false
+dadsa
+
+
+
+####################################
+//Write your function here
+
+
+function propertyExists(obj, path) {
+  let val = obj;
+  for (const property of path) {
+    if (!val || !val.hasOwnProperty(property)) {
+      return false;
+    }
+    val = val[property];
+…      for(let c of str) {
+          if(c === '\r' || c === '\n') continue
+          arr.push(c)
+      }
+      let ans = propertyExists(JSON.parse(obj),arr)
+      process.stdout.write(ans.toString()+'\n');
+    }
+
+    process.exit()
+});
