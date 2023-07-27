@@ -15,3 +15,16 @@ const printJohnName = CN.printName.bind(john);
 printJohnName();
 
 john.greet.call(CN);
+
+###############################
+
+function createStudent(name, rollNo, marks){
+    var student = {}; //new object
+    student.name = name;
+    student.rollNo = rollNo;
+    student.marks = marks;
+    return student;
+}
+
+var student1 = createStudent("abnsbj", 15, 98);
+var student2 = createStudent("ahkhdjd", 40,19);
