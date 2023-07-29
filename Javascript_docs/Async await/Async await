@@ -1,0 +1,26 @@
+Async await
+Send Feedback
+Given a function randomAsyncFunction() which completes after an unknown amount of time and does not return a promise. Write a function asyncWithCallback() that will take a callback function and will call the randomAsyncFunction() and the callback() will be executed only after the randomAsyncFunction() is completed.
+
+
+********************************
+
+function randomAsyncFunction() {
+   const time = Math.floor(Math.random * 100)
+    const x = setTimeout(() => {
+      console.log('finished!!')
+    },time)
+    };
+   
+   
+  async function asyncWithCallback(callback) {
+     randomAsyncFunction()
+    setTimeout(() => {
+        callback()
+    },2000)
+  }
+    
+   
+  asyncWithCallback(() => {
+    console.log("fsdfsf");
+  });
