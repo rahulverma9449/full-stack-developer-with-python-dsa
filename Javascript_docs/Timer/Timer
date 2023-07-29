@@ -1,0 +1,39 @@
+Timer
+Send Feedback
+Create a simple counter function, which when called will return two functions: start() and stop(). Use those functions to start the counter and stop them. The start() 
+function should start printing 0 …. N - 1 with one second delay between every logs. The stop() should pause the counter. Use setTimeout() and Promises to do this.
+
+*******************************************************************
+function createCounter() {
+  let counterId;
+
+  const start = (N) => {
+    let count = 0;
+    console.log(count);
+
+    function tick() {
+      count++;
+      if (count < N) {
+        console.log(count);
+        counterId = setTimeout(tick, 1000); // Delay of 1 second (1000 ms)
+      }
+    }
+
+    if (!counterId) {
+      tick();
+    }
+  };
+
+  const stop = () => {
+    if (counterId) {
+      clearTimeout(counterId);
+      counterId = null;
+    }
+  };
+
+  return { start, stop };
+}
+
+// Example usage:
+const counter = createCounter();
+counter.start(10); 
