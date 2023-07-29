@@ -33,4 +33,26 @@ async function asyncWithCallback(callback) {
 asyncWithCallback(() => {
     console.log("mission completed")
 })
+
+
+**********************************
+
+function randomAsyncFunction() {
+    const time = Math.floor(Math.random * 100)
+    const x = setTimeout(() => {
+      console.log('finished!!')
+    },time)
+}
+
+async function asyncWithCallback(callback) {
+     randomAsyncFunction()
+     setTimeout(() => {
+        callback();
+    },5000);
+  }
+
+asyncWithCallback(() => {
+    console.log("mission pending")
+})
+
   
