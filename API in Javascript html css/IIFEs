@@ -1,0 +1,17 @@
+IIFEs
+Send Feedback
+Create an IIFE which returns two functions, increase and initialize. The function initialize will take an initial value of the counter and increment would increase the counter by 1 and return it.
+For initial value 1 it will give 2,3,4...
+
+//Write your function here
+
+
+const counter = (function () {
+    let c = 0;
+    function initialize(start) {
+        c = start;
+    
+    }
+    function increase() {
+…    process.exit();
+});
