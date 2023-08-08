@@ -1,0 +1,23 @@
+function main(email) {
+    let result;
+    
+    
+    if (email.length >= 3 && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+        result = `${email} is valid`;
+    } else {
+        result = 'invalid email';
+    }
+    
+    return result;
+}
+
+ 
+const email1 = 'xyz@gmail.com';
+const email2 = 'ab@cd.com';
+const email3 = 'a@b.co';
+const email4 = 'xy@z.c';
+
+console.log(main(email1));  
+console.log(main(email2));  
+console.log(main(email3));  
+console.log(main(email4)); 
