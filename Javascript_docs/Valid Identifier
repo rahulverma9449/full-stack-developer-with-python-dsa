@@ -1,0 +1,20 @@
+//Create the isValidIdentifier function 
+function isValidIdentifier(input) {
+  const firstChar = input[0];
+  const validSpecialCharacters = ['$', '_'];
+
+  if (!isNaN(firstChar) || validSpecialCharacters.includes(firstChar)) {
+    console.log(`${input} is not a valid identifier.`);
+  } else {
+    const isValid = /^[$a-zA-Z_][0-9a-zA-Z_]*$/.test(input);
+    if (isValid) {
+      console.log(`${input} is a valid identifier.`);
+    } else {
+      console.log(`${input} is not a valid identifier.`);
+    }
+  }
+}
+
+isValidIdentifier("myVariable"); // Logs: myVariable is a valid identifier.
+isValidIdentifier("123abc"); // Logs: 123abc is not a valid identifier.
+isValidIdentifier("_pr&ivate"); // Logs: _pr&ivate is not a valid identifier.
