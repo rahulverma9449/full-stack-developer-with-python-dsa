@@ -1,0 +1,8 @@
+let arr = [23, 56, 4, 78, 5, 63, 45, 210, 56];
+let ele = 56;
+function deleteOccur(arr,ele){
+   //Implement Your function here
+    return arr.filter(item => item !== ele);
+}
+
+console.log(deleteOccur(arr,ele));
