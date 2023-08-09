@@ -1,0 +1,33 @@
+// Write the program to calculate the discount on the given amount
+// store the calculated discount in the "discount" variable
+// Please do not alter anything given in the starter code
+function calculate(amount) {
+  let discount;
+
+  switch (true) {
+    case amount < 500:
+      discount = "No Discount";
+      break;
+    case amount < 1000:
+      discount = "10% Discount";
+      break;
+    case amount < 2000:
+      discount = "20% Discount";
+      break;
+    case amount < 4000:
+      discount = "30% Discount";
+      break;
+    case amount < 5000:
+      discount = "40% Discount";
+      break;
+    default:
+      discount = "50% Discount";
+  }
+
+  return discount;
+}
+
+const inputAmount = 2500;  
+const calculated = calculate(inputAmount);
+console.log(`Discount: ${calculated}`);
+
