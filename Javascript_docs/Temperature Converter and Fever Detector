@@ -1,0 +1,19 @@
+function main(tempF) {
+  let result;
+  
+  // Convert Fahrenheit to Celsius
+  const tempC = ((tempF - 32) * 5/9).toFixed(1);
+  
+  // Detect fever
+  if (tempC >= 37) {
+    result = `The temperature is ${tempC}°C. You have a fever.`;
+  } else {
+    result = `The temperature is ${tempC}°C. You do not have a fever.`;
+  }
+
+  return result;
+}
+
+// Example usage
+console.log(main(98.7));
+console.log(main(100.6));
